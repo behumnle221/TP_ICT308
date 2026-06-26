@@ -52,11 +52,17 @@
 - Unicité garantie par la collection, pas par vérification manuelle redondante.
 - Format de date ISO-8601 (`LocalDateTime`) pour éviter les ambiguïtés.
 
-### Compilation & Exécution
+### Compilation & Exécution (IHM Swing)
 ```bash
-javac -d bin src/*.java
-java -cp bin Main
+javac -d bin src/model/*.java src/service/*.java src/ihm/*.java
+java -cp bin ihm.FenetrePrincipale
 ```
+
+### IHM Swing
+- **FenetrePrincipale** : JFrame avec `JTable` (grille 8h–18h × 3 salles), renderer personnalisé (vert = libre, rose = occupé).
+- **ModeleGrille** : `AbstractTableModel` qui interroge `GestionReservations` pour remplir les cellules.
+- **FormulaireReservation** : `JDialog` modal ; clic sur cellule libre ouvre le formulaire (ID + nom client), valide et ajoute via le service métier.
+- **Sauvegarde** : bouton Quitter → `FichierIndexe.sauvegarder` → `System.exit(0)`.
 
 ### Format de date attendu
 `YYYY-MM-DDTHH:MM` (ex: `2026-06-26T09:00`)

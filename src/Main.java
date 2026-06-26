@@ -1,3 +1,10 @@
+import model.TypeSalle;
+import model.Salle;
+import model.Reservation;
+import model.CreneauHoraire;
+import service.FichierIndexe;
+import service.GestionReservations;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 import java.util.Set;
